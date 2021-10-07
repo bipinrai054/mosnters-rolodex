@@ -8,7 +8,7 @@ function App() {
   const [searchField, setSearchField] = useState('');
 
   const filteredMonsters = monsters.filter((monster) => {
-    monster.name.toLowerCase().includes(searchField.toLocaleLowerCase());
+    return monster.name.toLowerCase().includes(searchField.toLocaleLowerCase());
   });
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function App() {
     <div className='App'>
       <SearchBox
         placeholder='Search Monsters'
-        onChange={(e) => setSearchField(e.target.value)}
+        handleChange={(e) => setSearchField(e.target.value)}
       />
       <CardList monsters={filteredMonsters} />
     </div>
